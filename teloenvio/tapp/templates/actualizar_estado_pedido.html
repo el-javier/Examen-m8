@@ -1,0 +1,11 @@
+<form method="POST" action="{% url 'actualizar_estado_pedido' pedido.id %}">
+    {% csrf_token %}
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado">
+        <option value="P" {% if pedido.estado == 'P' %}selected{% endif %}>Pendiente</option>
+        <option value="PR" {% if pedido.estado == 'PR' %}selected{% endif %}>En preparación</option>
+        <option value="D" {% if pedido.estado == 'D' %}selected{% endif %}>En despacho</option>
+        <option value="E" {% if pedido.estado == 'E' %}selected{% endif %}>Entregado</option>
+    </select>
+    <button type="submit">Actualizar estado</button>
+</form>

@@ -1,0 +1,15 @@
+<h2>Historial de Pedidos</h2>
+<ul>
+  {% for pedido in pedidos %}
+    <li>
+      Número de Pedido: {{ pedido.numero_pedido }}
+      Estado: {{ pedido.get_estado_display }}
+      <!-- Agrega más información del pedido si lo deseas -->
+      {% if pedido.estado == 'P' or pedido.estado == 'PR' %}
+        <a href="{% url 'cancelar_pedido' pedido.numero_pedido %}">Cancelar Pedido</a>
+      {% endif %}
+    </li>
+  {% empty %}
+    <li>No se encontraron pedidos.</li>
+  {% endfor %}
+</ul>

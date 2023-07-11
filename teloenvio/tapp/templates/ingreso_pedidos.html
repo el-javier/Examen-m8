@@ -1,0 +1,50 @@
+<style>
+    .form-field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .form-field label {
+        margin-bottom: 5px;
+    }
+</style>
+
+<form method="POST" action="{% url 'ingreso_pedidos' %}">
+    {% csrf_token %}
+
+    <div class="form-field">
+        <label for="cliente">Cliente:</label>
+        <input type="text" id="cliente" name="cliente">
+    </div>
+
+    <div class="form-field">
+        <label for="direccion_entrega">Dirección de entrega:</label>
+        <input type="text" id="direccion_entrega" name="direccion_entrega">
+    </div>
+
+    <div class="form-field">
+        <label for="productos">Productos:</label>
+        <select id="productos" name="productos" multiple>
+            {% for producto in productos %}
+            <option value="{{ producto.id }}">{{ producto.descripcionProducto }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-field">
+        <label for="cantidades">Cantidades:</label>
+        <input type="text" id="cantidades" name="cantidades">
+    </div>
+
+    <div class="form-field">
+        <label for="precio_total">Precio Total:</label>
+        <input type="text" id="precio_total" name="precio_total">
+    </div>
+
+    <div class="form-field">
+        <label for="forma_pago">Forma de Pago:</label>
+        <input type="text" id="forma_pago" name="forma_pago">
+    </div>
+
+    <button type="submit">Enviar</button>
+</form>

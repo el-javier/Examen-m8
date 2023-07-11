@@ -1,0 +1,17 @@
+<table>
+    <thead>
+      <tr>
+        <th>Número de Pedido</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pedido in pedidos %}
+      <tr>
+        <td>{{ pedido.numero_pedido }}</td>
+        <td>{{ pedido.get_estado_display }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
