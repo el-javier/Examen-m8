@@ -1,5 +1,5 @@
 <h1>examen</h1>
-<p>lo qu se alcanzo a hacer</p>
+<p>lo que se alcanzo a hacer</p>
 
 
 
